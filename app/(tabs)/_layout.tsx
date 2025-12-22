@@ -1,57 +1,134 @@
-import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
-
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import { Tabs } from 'expo-router';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+        headerShown: false,
+        tabBarActiveTintColor: '#2563eb',
+        tabBarInactiveTintColor: '#94a3b8',
+        tabBarShowLabel: true,
+        tabBarStyle: {
+          borderTopWidth: 1,
+          borderTopColor: '#e2e8f0',
+          paddingBottom: 8,
+          paddingTop: 8,
+          height: 65,
+          backgroundColor: '#fff',
+        },
+        tabBarLabelStyle: {
+          fontSize: 11,
+          marginTop: 4,
+          fontWeight: '600',
+        },
+      }}
+    >
+      {/* Main Tabs - Only 5 visible */}
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+          title: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
           ),
         }}
       />
+
       <Tabs.Screen
-        name="two"
+        name="transactions"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Activity',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="time" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="accounts"
+        options={{
+          title: 'Accounts',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="wallet" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="transfer"
+        options={{
+          title: 'Transfer',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="send" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person" size={size} color={color} />
+          ),
+        }}
+      />
+
+      {/* Hidden tabs - Accessible via home screen or app menu */}
+      <Tabs.Screen
+        name="bills"
+        options={{
+          href: null,
+          title: 'Bills',
+        }}
+      />
+
+      <Tabs.Screen
+        name="airtime"
+        options={{
+          href: null,
+          title: 'Airtime',
+        }}
+      />
+
+      <Tabs.Screen
+        name="crypto"
+        options={{
+          href: null,
+          title: 'Crypto',
+        }}
+      />
+
+      <Tabs.Screen
+        name="qrcode"
+        options={{
+          href: null,
+          title: 'QR Code',
+        }}
+      />
+
+      <Tabs.Screen
+        name="recurring"
+        options={{
+          href: null,
+          title: 'Recurring',
+        }}
+      />
+
+      <Tabs.Screen
+        name="pickup"
+        options={{
+          href: null,
+          title: 'Cash Pickup',
+        }}
+      />
+
+      <Tabs.Screen
+        name="group"
+        options={{
+          href: null,
+          title: 'Group Pay',
         }}
       />
     </Tabs>
