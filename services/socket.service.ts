@@ -1,6 +1,6 @@
 import io, { Socket } from 'socket.io-client';
 import { tokenStorage } from '@/libs/storage/token-storage';
-import { useNotificationStore } from '@/stores/notificationStore';
+import { useNotificationStore } from '@/libs/store/notificationStore';
 import { successNotification, infoNotification } from '@/libs/feedback/notification';
 
 class SocketService {

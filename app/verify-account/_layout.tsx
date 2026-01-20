@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
 import React from 'react';
 
-const AccountLayout = () => {
+const VerifyAccountLayout = () => {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="[id]" options={{ headerShown: false }} />
@@ -9,4 +9,4 @@ const AccountLayout = () => {
   );
 };
 
-export default AccountLayout;
+export default VerifyAccountLayout;

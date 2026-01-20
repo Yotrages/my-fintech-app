@@ -95,7 +95,7 @@ export default function SignUpScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       className="flex-1 bg-white"
     >
-      <ScrollView className="flex-1 px-6" showsVerticalScrollIndicator={false}>
+      <ScrollView className="flex-1 px-6 pt-6" showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View className="mt-8 mb-8">
           <View className="w-16 h-16 bg-blue-600 rounded-2xl items-center justify-center mb-4">
@@ -157,7 +157,7 @@ export default function SignUpScreen() {
         <View className="items-center mb-8">
           <TouchableOpacity
             onPress={pickImage}
-            className="w-24 h-24 rounded-full bg-gray-200 items-center justify-center border-2 border-dashed border-gray-400"
+            className="w-32 h-32 rounded-full bg-gray-200 items-center justify-center border-2 border-dashed border-gray-400"
           >
             {avatarUri ? (
               <Image source={{ uri: avatarUri }} className="w-full h-full rounded-full" />

@@ -43,7 +43,7 @@ const SignInScreen = () => {
               const user = data.user;
               // Persist to auth store with complete user data
               setAuth(user, token, refreshToken);
-              router.replace('/(tabs)/home');
+              router.replace('/(tabs)/home' as any);
             } else {
               console.error('Failed to fetch user profile:', response.status);
             }
@@ -88,7 +88,7 @@ const SignInScreen = () => {
               const user = data.user;
               // Persist to auth store with complete user data
               setAuth(user, token, refreshToken);
-              router.replace('/(tabs)/home');
+              router.replace('/(tabs)/home' as any);
             } else {
               console.error('Failed to fetch user profile:', response.status);
             }
@@ -109,7 +109,7 @@ const SignInScreen = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       className="flex-1 bg-white"
     >
-      <ScrollView className="flex-1 px-6" showsVerticalScrollIndicator={false}>
+      <ScrollView className="flex-1 px-6 py-3" showsVerticalScrollIndicator={false}>
         <View className="mt-12 mb-8">
           <View className="w-16 h-16 bg-blue-600 rounded-2xl items-center justify-center mb-4">
             <Ionicons name="wallet" size={32} color="white" />
@@ -118,7 +118,7 @@ const SignInScreen = () => {
           <Text className="text-gray-600">Sign in to your FinTech account</Text>
         </View>
 
-        <Card variant="default" padding="lg" style={{ marginBottom: 24 }}>
+        <Card variant="default" padding="sm" style={{ marginBottom: 24 }}>
           <Input
             {...register('email')}
             label="Email Address"

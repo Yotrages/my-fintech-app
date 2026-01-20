@@ -424,7 +424,7 @@ export const useLogin = (from?: string, options?: Partial<Omit<UseApiControllerO
     email: z.string().min(1, "Email is required"),
     password: z.string().min(1, "Password is required"),
   });
-  const { setAuth } = useAuthStore((state) => ({ setAuth: state.setAuth }));
+  const setAuth = useAuthStore((state) => state.setAuth);
 
   return useApiController<LoginData, AuthResponse>({
     method: "POST",

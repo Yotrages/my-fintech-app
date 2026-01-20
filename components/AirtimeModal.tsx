@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Card, Button } from '@/components';
+import { Card } from './Card';
+import { Button } from './Button';
 import { Country } from '@/libs/countries';
 
 interface Provider {

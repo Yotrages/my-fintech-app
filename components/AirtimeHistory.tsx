@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Card } from '@/components';
+import { Card } from './Card';
 
 interface Transaction {
   id: string;
