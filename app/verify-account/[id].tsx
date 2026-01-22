@@ -62,7 +62,7 @@ export default function VerifyAccountScreen() {
         onPress={pickDocument}
         className="border-2 border-dashed border-gray-300 rounded-xl p-8 items-center mb-6"
       >
-        {document ? (
+        {userDocument ? (
           <>
             <Ionicons name="document-text" size={48} color="#2563eb" />
             <Text className="text-gray-900 font-medium mt-3">{userDocument.name}</Text>
@@ -79,7 +79,7 @@ export default function VerifyAccountScreen() {
 
       <TouchableOpacity
         onPress={handleSubmit}
-        disabled={!document || isLoading}
+        disabled={!userDocument || isLoading}
         className={`rounded-xl py-4 items-center ${
           !document || isLoading ? 'bg-gray-300' : 'bg-blue-600'
         }`}

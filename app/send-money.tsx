@@ -4,6 +4,7 @@ import { useFetch, useMutate } from '@/hooks/useFetch';
 import { useRouter } from 'expo-router';
 import { getCurrencySymbol, SUPPORTED_COUNTRIES } from '@/constants/countries';
 import { v4 as uuidv4 } from 'uuid';
+import { ScreenWrapper } from '@/components';
 
 export default function SendMoneyScreen() {
   const router = useRouter();
@@ -45,7 +46,8 @@ export default function SendMoneyScreen() {
   };
 
   return (
-    <ScrollView className="flex-1 bg-white">
+    <ScreenWrapper>
+    <ScrollView className="bg-white">
       <View className="px-6 py-8">
         <Text className="text-3xl font-bold text-gray-900 mb-2">Send Money</Text>
         <Text className="text-gray-600 mb-8">Fast international transfers</Text>
@@ -166,5 +168,6 @@ export default function SendMoneyScreen() {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }
