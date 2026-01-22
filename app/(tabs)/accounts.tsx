@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, RefreshControl } from 'react-
 import { useFetch } from '@/hooks/useFetch';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { Button, Card } from '@/components';
+import { Button, Card, ScreenWrapper } from '@/components';
 
 interface Account {
   id: string;
@@ -37,8 +37,9 @@ export default function AccountsScreen() {
   };
 
   return (
+    <ScreenWrapper>
     <ScrollView
-      className="flex-1 bg-gray-50"
+      className="bg-gray-50"
       refreshControl={<RefreshControl refreshing={isLoading} onRefresh={() => refetch()} />}
     >
       {/* Header */}
@@ -113,5 +114,6 @@ export default function AccountsScreen() {
         )}
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

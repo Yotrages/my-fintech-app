@@ -4,6 +4,7 @@ import { useFetch } from '@/hooks/useFetch';
 import { Ionicons } from '@expo/vector-icons';
 import { format } from 'date-fns';
 import currency from 'currency.js';
+import { ScreenWrapper } from '@/components/ScreenWrapper';
 
 interface Transaction {
   id: string;
@@ -110,7 +111,8 @@ export default function TransactionsScreen() {
   }
 
   return (
-    <View className="flex-1 bg-gray-50">
+    <ScreenWrapper>
+    <View className="bg-gray-50">
       <View className="bg-blue-600 px-6 pt-16 pb-6">
         <Text className="text-white text-2xl font-bold">
           Transactions
@@ -133,5 +135,6 @@ export default function TransactionsScreen() {
         }
       />
     </View>
+    </ScreenWrapper>
   );
 }

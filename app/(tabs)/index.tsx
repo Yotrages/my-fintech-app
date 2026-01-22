@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, RefreshControl } from 'react-
 import { useFetch } from '@/hooks/useFetch';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { Card, Button } from '@/components';
+import { Card, Button, ScreenWrapper } from '@/components';
 import { getCurrencySymbol } from '@/constants/countries';
 
 interface AccountData {
@@ -31,8 +31,9 @@ export default function HomeScreen() {
   const pendingAccounts = accounts.filter(acc => acc.verificationStatus === 'pending');
 
   return (
+    <ScreenWrapper>
     <ScrollView
-      className="flex-1 bg-gray-50"
+      className="bg-gray-50"
       refreshControl={<RefreshControl refreshing={isLoading} onRefresh={() => refetch()} />}
     >
       {/* Header */}
@@ -253,5 +254,6 @@ export default function HomeScreen() {
         </Card>
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

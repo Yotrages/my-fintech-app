@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platfor
 import { useLogin } from '@/hooks/useFetch';
 import { useAuthStore } from '@/libs/store/authStore';
 import { Link, useRouter } from 'expo-router';
-import { Button, Input, Card } from '@/components';
+import { Button, Input, Card, ScreenWrapper } from '@/components';
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 
@@ -105,9 +105,10 @@ const SignInScreen = () => {
   };
 
   return (
+    <ScreenWrapper>
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      className="flex-1 bg-white"
+      className="bg-white"
     >
       <ScrollView className="flex-1 px-6 py-3" showsVerticalScrollIndicator={false}>
         <View className="mt-12 mb-8">
@@ -222,6 +223,7 @@ const SignInScreen = () => {
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
+    </ScreenWrapper>
   );
 }
 

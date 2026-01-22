@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, Switch, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { Ionicons } from '@expo/vector-icons';
+import { ScreenWrapper } from '@/components/ScreenWrapper';
 
 export default function TransactionSecurityScreen() {
   const { data: settings, isLoading } = useFetch<{ data: any }>('settings');
@@ -39,7 +40,8 @@ export default function TransactionSecurityScreen() {
   }
 
   return (
-    <ScrollView className="flex-1 bg-white">
+    <ScreenWrapper>
+    <ScrollView className="bg-white">
       <View className="px-6 py-8">
         <Text className="text-2xl font-bold text-gray-900 mb-2">Transaction Security</Text>
         <Text className="text-gray-600 mb-6">Protect your transfers with additional security</Text>
@@ -115,5 +117,6 @@ export default function TransactionSecurityScreen() {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

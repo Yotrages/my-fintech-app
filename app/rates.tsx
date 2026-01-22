@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, TextInput, RefreshControl } from 'react-native';
 import { useFetch } from '@/hooks/useFetch';
 import { Ionicons } from '@expo/vector-icons';
+import { ScreenWrapper } from '@/components';
 
 export default function RatesScreen() {
   const [baseCurrency, setBaseCurrency] = useState('USD');
@@ -15,7 +16,8 @@ export default function RatesScreen() {
   );
 
   return (
-    <ScrollView className="flex-1 bg-white" refreshControl={<RefreshControl refreshing={isLoading} onRefresh={refetch} />}>
+    <ScreenWrapper>
+    <ScrollView className="bg-white" refreshControl={<RefreshControl refreshing={isLoading} onRefresh={refetch} />}>
       <View className="px-6 py-8">
         <Text className="text-3xl font-bold text-gray-900 mb-2">Live Exchange Rates</Text>
         <Text className="text-gray-600 mb-6">Real-time currency conversion rates</Text>
@@ -54,5 +56,6 @@ export default function RatesScreen() {
         ))}
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

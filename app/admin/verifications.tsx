@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, Image, Modal, TextInput, Acti
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
+import { ScreenWrapper } from '@/components/ScreenWrapper';
 
 export default function AdminVerificationsScreen() {
   const [selectedAccount, setSelectedAccount] = useState<any>(null);
@@ -40,7 +41,8 @@ export default function AdminVerificationsScreen() {
   };
 
   return (
-    <View className="flex-1 bg-gray-50">
+    <ScreenWrapper>
+    <View className="bg-gray-50">
       <View className="bg-purple-600 px-6 pt-16 pb-6">
         <Text className="text-white text-2xl font-bold">Pending Verifications</Text>
         <Text className="text-purple-100">{accounts?.data?.length || 0} accounts awaiting review</Text>
@@ -186,5 +188,6 @@ export default function AdminVerificationsScreen() {
         </View>
       </Modal>
     </View>
+    </ScreenWrapper>
   );
 }

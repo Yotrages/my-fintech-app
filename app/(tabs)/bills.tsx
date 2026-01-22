@@ -12,7 +12,7 @@ import {
   Pressable,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Card, Button, CountryPickerButton, ProviderGrid } from '@/components';
+import { Card, Button, CountryPickerButton, ProviderGrid, ScreenWrapper } from '@/components';
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { billsApi } from '@/libs/axios/api';
 import { useAuthStore } from '@/libs/store/authStore';
@@ -182,8 +182,9 @@ export default function BillsScreen() {
   const currencySymbol = selectedCountry ? getCurrencySymbol(selectedCountry.currency) : '₦';
 
   return (
+    <ScreenWrapper>
     <ScrollView
-      className="flex-1 bg-slate-50"
+      className="bg-slate-50"
       refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}
     >
       {/* Header */}
@@ -404,5 +405,6 @@ export default function BillsScreen() {
         </View>
       </Modal>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, RefreshControl } from 'react-
 import { useFetch } from '@/hooks/useFetch';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { ScreenWrapper } from '@/components/ScreenWrapper';
 
 export default function AdminDashboardScreen() {
   const router = useRouter();
@@ -18,7 +19,8 @@ export default function AdminDashboardScreen() {
   ];
 
   return (
-    <ScrollView className="flex-1 bg-gray-50" refreshControl={<RefreshControl refreshing={isLoading} onRefresh={refetch} />}>
+    <ScreenWrapper>
+    <ScrollView className="bg-gray-50" refreshControl={<RefreshControl refreshing={isLoading} onRefresh={refetch} />}>
       <View className="bg-gradient-to-r from-purple-600 to-blue-600 px-6 pt-16 pb-8">
         <Text className="text-white text-3xl font-bold mb-2">Admin Dashboard</Text>
         <Text className="text-purple-100">Manage verifications & monitor activity</Text>
@@ -73,5 +75,6 @@ export default function AdminDashboardScreen() {
         </View>
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

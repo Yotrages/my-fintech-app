@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { useFetch } from '@/hooks/useFetch';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { ScreenWrapper } from '@/components/ScreenWrapper';
 
 export default function AccountDetailScreen() {
   const { id } = useLocalSearchParams();
@@ -12,7 +13,8 @@ export default function AccountDetailScreen() {
   const accountData = account?.data;
 
   return (
-    <ScrollView className="flex-1 bg-white">
+    <ScreenWrapper>
+    <ScrollView className="bg-white">
       <View className="px-6 py-8">
         <View className="items-center mb-8">
           <Text className="text-4xl font-bold text-gray-900 mb-2">
@@ -53,5 +55,6 @@ export default function AccountDetailScreen() {
         )}
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

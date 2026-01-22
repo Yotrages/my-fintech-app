@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, Switch, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useFetch, useMutate } from '@/hooks/useFetch';
+import { ScreenWrapper } from '@/components/ScreenWrapper';
 
 export default function PrivacySettingsScreen() {
   const { data: settings, isLoading } = useFetch<{ data: any }>('settings');
@@ -27,7 +28,8 @@ export default function PrivacySettingsScreen() {
   };
 
   return (
-    <ScrollView className="flex-1 bg-white">
+    <ScreenWrapper>
+    <ScrollView className="bg-white">
       <View className="px-6 py-8">
         <Text className="text-2xl font-bold text-gray-900 mb-6">Privacy Settings</Text>
 
@@ -72,5 +74,6 @@ export default function PrivacySettingsScreen() {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

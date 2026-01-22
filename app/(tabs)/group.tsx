@@ -13,7 +13,7 @@ import {
   Alert,
 } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { Card, Button } from '@/components';
+import { Card, Button, ScreenWrapper } from '@/components';
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { groupPaymentsApi } from '@/libs/axios/api';
 import { useAuthStore } from '@/libs/store/authStore';
@@ -178,8 +178,9 @@ export default function GroupPaymentScreen() {
   const categories = ['Dinner', 'Trip', 'Event', 'Rent', 'Utilities', 'Other'];
 
   return (
+    <ScreenWrapper>
     <ScrollView
-      className="flex-1 bg-slate-50"
+      className="bg-slate-50"
       refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}
     >
       {/* Header */}
@@ -501,5 +502,6 @@ export default function GroupPaymentScreen() {
         </View>
       )}
     </ScrollView>
+    </ScreenWrapper>
   );
 }

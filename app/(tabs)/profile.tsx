@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, Alert, Image } from 'react-na
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuthStore } from '@/libs/store/authStore';
-import { Card, Button } from '@/components';
+import { Card, Button, ScreenWrapper } from '@/components';
 
 export default function ProfileScreen() {
   const router = useRouter();
@@ -32,7 +32,8 @@ export default function ProfileScreen() {
   ];
 
   return (
-    <ScrollView className="flex-1 bg-gray-50" showsVerticalScrollIndicator={false}>
+    <ScreenWrapper>
+    <ScrollView className="bg-gray-50" showsVerticalScrollIndicator={false}>
       {/* Profile Header */}
       <View className="bg-gradient-to-b from-blue-600 to-blue-700 px-6 pt-12 pb-12">
         <View className="items-center">
@@ -108,5 +109,6 @@ export default function ProfileScreen() {
         </View>
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

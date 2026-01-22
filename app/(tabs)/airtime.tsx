@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Button, CountryPickerButton, ProviderGrid, AirtimeModal, AirtimeHistory } from '@/components';
+import { Button, CountryPickerButton, ProviderGrid, AirtimeModal, AirtimeHistory, ScreenWrapper } from '@/components';
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { useAuthStore } from '@/libs/store/authStore';
 import { getAllCountries, Country, getCurrencySymbol, validatePhoneNumber } from '@/libs/countries';
@@ -155,8 +155,9 @@ export default function AirtimeScreen() {
   const currencySymbol = selectedCountry ? getCurrencySymbol(selectedCountry.currency) : '₦';
 
   return (
+    <ScreenWrapper>
     <ScrollView
-      className="flex-1 bg-slate-50"
+      className="bg-slate-50"
       refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}
     >
       {/* Header */}
@@ -239,5 +240,6 @@ export default function AirtimeScreen() {
         calculateFee={calculateFee}
       />
     </ScrollView>
+    </ScreenWrapper>
   );
 }

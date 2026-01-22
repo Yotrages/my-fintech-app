@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, ScrollView, ActivityIndicator 
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { ScreenWrapper } from '@/components';
 
 export default function AddAccountScreen() {
   const router = useRouter();
@@ -39,7 +40,8 @@ export default function AddAccountScreen() {
   };
 
   return (
-    <ScrollView className="flex-1 bg-white">
+    <ScreenWrapper>
+    <ScrollView className="bg-white">
       <View className="px-6 py-8">
         <Text className="text-3xl font-bold text-gray-900 mb-2">Add Bank Account</Text>
         <Text className="text-gray-600 mb-6">Select your country to get started</Text>
@@ -173,5 +175,6 @@ export default function AddAccountScreen() {
         )}
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

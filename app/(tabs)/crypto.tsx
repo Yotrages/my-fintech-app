@@ -12,7 +12,7 @@ import {
   Pressable,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Card, Button, CountryPickerButton } from '@/components';
+import { Card, Button, CountryPickerButton, ScreenWrapper } from '@/components';
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { cryptoApi } from '@/libs/axios/api';
 import { useAuthStore } from '@/libs/store/authStore';
@@ -161,8 +161,9 @@ export default function CryptoScreen() {
   }
 
   return (
+    <ScreenWrapper>
     <ScrollView
-      className="flex-1 bg-slate-50"
+      className="bg-slate-50"
       refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}
     >
       {/* Header */}
@@ -407,5 +408,6 @@ export default function CryptoScreen() {
         </View>
       </Modal>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

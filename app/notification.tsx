@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, RefreshControl } from 'react-
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { Ionicons } from '@expo/vector-icons';
 import { format } from 'date-fns';
+import { ScreenWrapper } from '@/components';
 
 export default function NotificationsScreen() {
   const { data: notifications, isLoading, refetch } = useFetch<{ data: any[] }>('notifications');
@@ -24,7 +25,8 @@ export default function NotificationsScreen() {
   };
 
   return (
-    <View className="flex-1 bg-gray-50">
+    <ScreenWrapper>
+    <View className="bg-gray-50">
       <View className="bg-blue-600 px-6 pt-16 pb-6">
         <View className="flex-row justify-between items-center">
           <Text className="text-white text-2xl font-bold">Notifications</Text>
@@ -74,5 +76,6 @@ export default function NotificationsScreen() {
         </View>
       </ScrollView>
     </View>
+    </ScreenWrapper>
   );
 }

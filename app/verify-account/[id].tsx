@@ -4,6 +4,7 @@ import { useMutate } from '@/hooks/useFetch';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import * as DocumentPicker from 'expo-document-picker';
 import { Ionicons } from '@expo/vector-icons';
+import { ScreenWrapper } from '@/components';
 
 export default function VerifyAccountScreen() {
   const { id } = useLocalSearchParams();
@@ -40,7 +41,8 @@ export default function VerifyAccountScreen() {
   };
 
   return (
-    <View className="flex-1 bg-white px-6 py-8">
+    <ScreenWrapper>
+    <View className="bg-white px-6 py-8">
       <View className="items-center mb-8">
         <View className="w-20 h-20 bg-blue-100 rounded-full items-center justify-center mb-4">
           <Ionicons name="shield-checkmark" size={40} color="#2563eb" />
@@ -91,5 +93,6 @@ export default function VerifyAccountScreen() {
         )}
       </TouchableOpacity>
     </View>
+    </ScreenWrapper>
   );
 }

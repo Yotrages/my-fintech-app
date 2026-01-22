@@ -13,7 +13,7 @@ import {
   Alert,
 } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { Card, Button } from '@/components';
+import { Card, Button, ScreenWrapper } from '@/components';
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { cashPickupApi } from '@/libs/axios/api';
 import { useAuthStore } from '@/libs/store/authStore';
@@ -133,8 +133,9 @@ export default function CashPickupScreen() {
   const pendingCount = transactions.filter((t) => t.status === 'pending' || t.status === 'ready').length;
 
   return (
+    <ScreenWrapper>
     <ScrollView
-      className="flex-1 bg-slate-50"
+      className="bg-slate-50"
       refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}
     >
       {/* Header */}
@@ -462,5 +463,6 @@ export default function CashPickupScreen() {
         </View>
       </Modal>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

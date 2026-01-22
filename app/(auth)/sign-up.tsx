@@ -4,7 +4,7 @@ import { useRegister } from '@/hooks/useFetch';
 import { Link, useRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import * as WebBrowser from 'expo-web-browser';
-import { Button, Input, Card } from '@/components';
+import { Button, Input, Card, ScreenWrapper } from '@/components';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function SignUpScreen() {
@@ -91,6 +91,7 @@ export default function SignUpScreen() {
   };
 
   return (
+    <ScreenWrapper>
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       className="flex-1 bg-white"
@@ -244,5 +245,6 @@ export default function SignUpScreen() {
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
+    </ScreenWrapper>
   );
 }

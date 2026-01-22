@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { ScreenWrapper } from '@/components';
 
 export default function SettingsScreen() {
   const router = useRouter();
@@ -57,7 +58,8 @@ export default function SettingsScreen() {
   ];
 
   return (
-    <ScrollView className="flex-1 bg-gray-50">
+    <ScreenWrapper>
+    <ScrollView className="bg-gray-50">
       <View className="bg-blue-600 px-6 pt-16 pb-8">
         <Text className="text-white text-3xl font-bold">Settings</Text>
         <Text className="text-blue-100">Manage your account preferences</Text>
@@ -97,5 +99,6 @@ export default function SettingsScreen() {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

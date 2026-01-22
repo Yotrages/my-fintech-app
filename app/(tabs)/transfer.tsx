@@ -4,6 +4,7 @@ import { useMutate, useFetch } from '@/hooks/useFetch';
 import { useRouter } from 'expo-router';
 import currency from 'currency.js';
 import { v4 as uuidv4 } from 'uuid';
+import { ScreenWrapper } from '@/components/ScreenWrapper';
 
 export default function TransferScreen() {
   const router = useRouter();
@@ -38,6 +39,7 @@ export default function TransferScreen() {
   const selectedAccount = accounts?.data?.find(acc => acc.id === sourceAccountId);
 
   return (
+    <ScreenWrapper>
     <ScrollView className="flex-1 bg-white">
       <View className="px-6 py-8">
         <Text className="text-2xl font-bold text-gray-900 mb-6">
@@ -140,5 +142,6 @@ export default function TransferScreen() {
         </View>
       </View>
     </ScrollView>
+    </ScreenWrapper>
   );
 }

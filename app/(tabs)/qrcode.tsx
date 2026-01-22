@@ -13,7 +13,7 @@ import {
   Image,
 } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { Card, Button } from '@/components';
+import { Card, Button, ScreenWrapper } from '@/components';
 import { useFetch, useMutate } from '@/hooks/useFetch';
 import { qrCodesApi } from '@/libs/axios/api';
 import { useAuthStore } from '@/libs/store/authStore';
@@ -106,8 +106,9 @@ export default function QRCodeScreen() {
   const totalScans = qrCodes.reduce((sum, qr) => sum + qr.scans, 0);
 
   return (
+    <ScreenWrapper>
     <ScrollView
-      className="flex-1 bg-slate-50"
+      className="bg-slate-50"
       refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}
     >
       {/* Header */}
@@ -385,5 +386,6 @@ export default function QRCodeScreen() {
         </View>
       </Modal>
     </ScrollView>
+    </ScreenWrapper>
   );
 }
